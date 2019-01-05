@@ -100,6 +100,8 @@ func FlushBuffers() {
 	}
 	f.Close()
 	log.Println("Finished flushing buffers")
+
+	// this file is not correctly a "wav" file, so use GSTreamer to play back raw audio: gst-launch-1.0.exe filesrc location='C:\\Users\\Charles\\Documents\\GitHub\\AHQUStageBox\\src\\00-04-c4-01-8b-46-2.wav' ! rawaudioparse format=pcm pcm-format=s24le sample-rate=48000 num-channels=1 ! audioconvert ! audioresample ! autoaudiosink
 }
 func SplitPacket(srcmac net.HardwareAddr, data []byte, index int) {
 
